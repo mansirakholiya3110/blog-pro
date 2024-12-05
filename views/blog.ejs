@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input[type="text"],
+        form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #246f8a;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #246f8a;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            color: #333;
+        }
+
+        table th {
+            background-color: #246f8a;
+            color: white;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        table .delete-button {
+            color: white;
+            background-color: #dc3545;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        table .delete-button:hover {
+            background-color: #c82333;
+        }
+
+        table a {
+            text-decoration: none;
+            background-color: #246f8a;
+            padding: 5px 10px;
+            margin: 10px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+
+        table a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include("header") %>
+        <h1> Product Detail'S</h1>
+        <form action="/insertData" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            product
+            <input type="text" name="image" placeholder="enter Image URL" required>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" placeholder="Enter Price" required>
+            <input type="submit" value="Add Blog">
+        </form>
+
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>product</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (typeof record !=='undefined' && record.length> 0) { %>
+                        <% record.forEach(el=> { %>
+                            <tr>
+                                <td>
+                                    <%= el._id %>
+                                </td>
+                                <td>
+                                    <%= el.name %>
+                                </td>
+                                <td style="width: 12%;">
+                                    <img style="width:100%;" src="<%= el.image %>" alt="Product Image">
+                                </td>
+                                <td>
+                                    <%= el.price %>
+                                </td>
+                                <td>
+                                    <a href="/deleteData?userid=<%= el._id %>" class="delete-button">Delete</a>
+                                    <a href="/editData?userid=<%= el._id %>">Edit</a>
+                                </td>
+                            </tr>
+                            <% }); %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="5">No records found</td>
+                                    </tr>
+                                    <% } %>
+                </tbody>
+            </table>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            width: 90%;
+            margin-left: 5%;
+            justify-content: space-around;
+            background-color: #246f8a;
+        }
+
+        nav .left img {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        nav .center ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav .center ul li {
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        nav .center ul li:hover {
+            color: #103943;
+        }
+
+        nav .right a {
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        nav .right button {
+            align-items: center;
+            padding: 18px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        nav .right button i {
+            margin-right: 8px;
+        }
+
+        nav .right button:hover {
+            color: #010101;
+            background-color: #0058b6;
+        }
+    </style>
+</head>
+
+<body>
+        <nav>
+            <div class="left">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.dwkGIsW22cNa6Uli0tIw0AHaGg&pid=Api&P=0&h=100" alt="">
+            </div>
+            <div class="center">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="right">
+                <a href="/user/signinform"><button><i class="fas fa-user"></i> SignIn</button></a>
+                <a href="/user/loginform"><button><i class="fas fa-sign-in-alt"></i> LogIn</button></a>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>
